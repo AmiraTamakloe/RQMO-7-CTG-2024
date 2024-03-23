@@ -34,10 +34,10 @@ jobs:
           cache-dependency-path: "**/package-lock.json"
       - name: Install dependencies
         run: npm install
-        working-directory: frontend
+        working-directory: ./frontend
       - name: Build
         run: npm run build
-        working-directory: frontend
+        working-directory: ./frontend
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
