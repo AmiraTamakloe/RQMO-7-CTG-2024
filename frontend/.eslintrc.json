@@ -1,0 +1,79 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+        "plugin:prettier/recommended",
+        "plugin:import/recommended"
+    ],
+    // Specifying Parser
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": "latest",
+        "sourceType": "module",
+        "tsconfigRootDir": ".",
+        "project": ["./frontend/tsconfig.json", "./frontend/tsconfig.node.json"]
+    },
+    // Configuring third-party plugins
+    "plugins": [
+        "@typescript-eslint"
+    ],
+    // Resolve imports
+    "settings": {
+        "import/resolver": {
+            "typescript": {
+                "project": ["./frontend/tsconfig.json", "./frontend/tsconfig.node.json"]
+            }
+        }
+    },
+    "rules": {
+        "linebreak-style": "off",
+        // Configure prettier
+        "prettier/prettier": [
+            "error",
+            {
+                "semi": true,
+                "tabWidth": 2,
+                "printWidth": 100,
+                "singleQuote": true,
+                "trailingComma": "all",
+                "bracketSpacing": true,
+                "useTabs": true,
+                "endOfLine": "auto"
+            }
+        ],
+        // Disallow the `any` type.
+        "@typescript-eslint/no-explicit-any": "warn",
+        "@typescript-eslint/ban-types": [
+            "error",
+            {
+                "extendDefaults": true,
+                "types": {
+                    "{}": false
+                }
+            }
+        ],
+        "react-hooks/exhaustive-deps": "off",
+        // Enforce the use of the shorthand syntax.
+        "object-shorthand": "error",
+        "no-console": "off",
+        "@typescript-eslint/no-unsafe-assignment": "off",
+        "@typescript-eslint/no-unsafe-member-access": "off",
+        "@typescript-eslint/no-unsafe-argument": "off",
+        "@typescript-eslint/no-unsafe-call": "off",
+        "@typescript-eslint/no-misused-promises": "off",
+        "@typescript-eslint/restrict-plus-operands": "off",
+        "@typescript-eslint/restrict-template-expressions": "off",
+        "@typescript-eslint/require-await": "off",
+        "import/no-extraneous-dependencies": "off",
+        "react/no-children-prop": "off",
+        "@typescript-eslint/no-floating-promises": "off"
+    }
+}
