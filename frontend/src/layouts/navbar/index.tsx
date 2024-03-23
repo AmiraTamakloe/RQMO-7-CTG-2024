@@ -13,7 +13,16 @@ export default function Navbar() {
 			alignItems={'center'}
 			backgroundColor={colors.background}
 		>
-			<Image borderRadius={'2xl'} w={'10%'} h={'70%'} src={logo} _hover={{ cursor: 'pointer' }} onClick={() => {navigate('/RQMO-7-CTG-2024/home');}} />				
+			<Image
+				borderRadius={'2xl'}
+				w={'10%'}
+				h={'70%'}
+				src={logo}
+				_hover={{ cursor: 'pointer' }}
+				onClick={() => {
+					navigate('/RQMO-7-CTG-2024/home');
+				}}
+			/>
 			<Flex flexDirection={'column'} w={'100%'} alignItems={'center'}>
 				<Flex flexDirection={'row'} alignItems={'center'} gap={'3vw'}>
 					<Flex
