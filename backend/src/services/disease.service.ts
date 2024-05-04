@@ -1,6 +1,6 @@
 import * as process from 'process';
 import { Service } from 'typedi';
-import { Disease } from '@src/interfaces/disease.interface';
+import { Disease } from '@src/interfaces/Disease';
 import { DatabaseService } from '@src/services/database.service';
 
 @Service()
@@ -25,6 +25,13 @@ export class DiseaseService {
 			{ projection: { _id: 0 } }
 		);
 		return disease as unknown as Disease;
+	}
+
+	async getRandom() {
+		const randomDisease = await this.collection
+			.aggregate([{ $sample: { size: 1 } }, { $project: { _id: 0 } }])
+			.toArray();
+		return randomDisease[0] as unknown as Disease;
 	}
 
 	async add(disease: Disease) {
